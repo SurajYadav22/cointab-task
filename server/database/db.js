@@ -1,10 +1,8 @@
 import mongoose from "mongoose";
-
+import dotenv from "dotenv";
+dotenv.config();
 mongoose.set("strictQuery", true);
-
-export default mongoose.connect(
-  "mongodb+srv://suraj:suraj_123@cluster0.xkpv7hf.mongodb.net/?retryWrites=true&w=majority"
-);
+export default mongoose.connect(process.env.DATABASE_URL);
 
 mongoose.connection.on("connected", () => {
   console.log("connected to database successfully,");
